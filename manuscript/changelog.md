@@ -16,4 +16,4 @@ One source-level discrepancy is recorded here from first publication. The attack
 
 ---
 
-<distribution page: TBD>
+**Distribution page.** This book is published, free, at <https://leanpub.com/agent-security>. That page is the canonical source for the current edition, the errata above, and the route for reporting an error.
