@@ -1,0 +1,39 @@
+# Untrusted Content, RAG, and Memory
+
+## The channel with no boundary
+
+Chapter 5 hardened the actions an agent can take. This chapter hardens the content that decides which actions it takes. The two are inseparable, because a tool is only ever as safe as the reasoning that invokes it, and that reasoning runs on text the agent reads — much of which the agent fetched itself, from sources an attacker can reach. Three threat classes converge here: indirect prompt injection (TH-01), where a directive is hidden in fetched content; RAG and knowledge-base poisoning (TH-03), where the plant is in a retrieved document; and memory and context contamination (TH-04), where the agent writes the attacker's payload into its own future context.
+
+The uncomfortable premise, established in Chapter 1, is that there is no reliable boundary between instruction and data inside a language model. You cannot escape or parameterize retrieved text the way you escape a SQL string. So the defense is not to find a perfect filter; it is to **treat every piece of retrieved or remembered content as untrusted by default, carry enough metadata to reason about how far to trust it, and make every write to durable context a privileged, reversible act.**
+
+## Provenance, trust metadata, and TTL
+
+If retrieved content cannot be made safe by inspection, it can at least be made *legible*. The first control is to attach provenance to everything the agent ingests: where it came from, when, through which pipeline, and at what trust level. **REQ-020** requires that content entering the model from retrieval, tools, or memory be labeled with its source and trust level, and that the system be designed so labeled-untrusted content cannot override system instructions, developer policy, or tool schemas. The label is what lets a downstream control say "this instruction came from a web page the agent scraped, so it does not get to change policy," instead of treating scraped text and system prompt as equally authoritative.
+
+Trust metadata is only useful if it decays. A source that was reputable when indexed may be compromised later, and a fact that was true last quarter may be stale now. **REQ-021** (a SHOULD) asks that retrieved and remembered content carry a time-to-live and a freshness signal, so that old content is re-validated or expired rather than trusted indefinitely. TTL is the difference between a knowledge base that reflects the world and one that accumulates plants forever. The requirement is a SHOULD rather than a SHALL because appropriate lifetimes are domain-specific and sometimes genuinely long; the obligation is to make the decision explicitly, not to pick a universal number.
+
+## RAG poisoning: trusted by design, and that is the problem
+
+Retrieval-augmented generation works by treating retrieved documents as authoritative context. That is the whole point — and precisely the vulnerability. An attacker who can influence what gets indexed, what ranks highly, or what sits in the vector store can plant content that fires for every user, on every relevant query, until someone finds and removes it. Unlike a one-shot prompt injection that lives and dies in a single conversation, a poisoned knowledge base is persistent and broad, which raises its value to an attacker by orders of magnitude.
+
+The controls follow from provenance. Gate the ingestion pipeline so that content from low-trust sources is labeled as such and cannot be promoted to authoritative without review. Prefer sources you can attribute over anonymous or open-write ones. Apply the input/output boundary (CT-07) at retrieval time, so a retrieved document's embedded "ignore your instructions" is stripped of instructional authority by the untrusted label it carries. And subject the RAG corpus to the same change management as code (CT-13): an unreviewed bulk import into the index is an unreviewed change to agent behavior. None of this makes retrieval safe in the absolute; it makes the trust the agent places in retrieval *proportionate and revocable*, which is the achievable goal.
+
+## Memory writes are privileged and reversible
+
+Memory contamination is RAG poisoning's quieter sibling, and in some ways the more dangerous, because the contamination is written *by the agent itself* in the course of normal operation. The agent summarizes a thread, updates a user profile, or records a fact for later — and the attacker's payload rides along, now wearing the agent's own authority. It surfaces in a later session, decoupled from the attack that planted it, which is what makes it hard to detect and hard to attribute.
+
+The defense is to stop treating memory writes as a free side effect. **A write to durable memory is a privileged operation and SHALL be treated like one.** **REQ-022** requires that writes to long-term memory, profiles, and shared context be provenance-tagged, subject to policy, and reversible: you record what was written, on whose behalf, derived from which source, and you retain the ability to undo it. **REQ-052** (a SHOULD) extends this by asking that memory entries carry structured metadata — origin, trust level, and TTL — so that a remembered fact is subject to the same expiry and re-validation as a retrieved one, rather than hardening into permanent truth the moment it is written.
+
+Treating memory as privileged has an operational consequence worth stating plainly: it means you can afford to be generous with what the agent remembers only because you can be ruthless about undoing it. The safety is in the reversibility, not in the restraint.
+
+## Rollback as a first-class capability
+
+Provenance and TTL tell you a contaminated entry exists; rollback is what lets you remove it without rebuilding the world. Because memory writes are recorded with their source and their effect, a contamination event becomes a bounded cleanup: identify the poisoned entries by provenance, revert them, and — where the runtime posture machinery of Chapter 8 applies — freeze further memory writes while you do. The connection to Chapter 8 is deliberate. Memory-write suspension is one of the granular capabilities the kill switch can revoke, so "stop trusting what we've remembered" is an action you can take in seconds under attack, not a database migration you schedule for next week.
+
+Rollback also changes the economics of detection. Without it, every suspected contamination is a crisis, because the only remedies are to ignore it or to purge everything. With provenance-scoped rollback, a suspected contamination is a query and a revert, which means you can afford to act on weaker signals — and acting on weaker signals is how you catch the slow, patient poisoning that TH-04 is designed to hide.
+
+## Putting the three together
+
+Indirect injection, RAG poisoning, and memory contamination are one problem seen from three angles: untrusted content acquiring more authority than it should. The unified answer is a trust model that travels with the content. Label everything at ingestion (REQ-020). Let the labels decay (REQ-021, REQ-052). Deny untrusted content the power to override policy (REQ-020, CT-07). Make every durable write privileged, provenance-tagged, and reversible (REQ-022). And keep rollback close enough to hand that you can use it on suspicion. Do those, and the injection family stops being an unbounded risk and becomes a managed one — content the agent can read and use without letting it seize the wheel.
+
+That covers the three hardening surfaces an attacker probes directly: identity, tools, and content. The fourth surface — audit and assurance — is where you find out whether the first three are actually holding. Part III turns to operations: the monitoring, evaluation, and incident response that make an agent's behavior observable and its failures recoverable once it is live.

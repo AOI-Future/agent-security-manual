@@ -1,0 +1,12 @@
+# Leanpub build output (generated on their side)
+*.pdf
+*.epub
+*.mobi
+preview/
+export/
+
+# OS / editor cruft
+.DS_Store
+*.swp
+.idea/
+.vscode/
