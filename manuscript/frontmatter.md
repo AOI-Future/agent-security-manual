@@ -7,7 +7,7 @@
 *A living manual for engineers, security architects, and the people who have to sign off on shipping an agent.*
 
 {width: 40%}
-![](images/cover-mark.png)
+![](cover-mark.png)
 
 ---
 
