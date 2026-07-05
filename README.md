@@ -4,6 +4,13 @@ A living manual on threats, controls, and verifiable assurance for autonomous (t
 
 This repository is the **source of the free book (Tier 1 / "1F")**, published on Leanpub with GitHub sync. The paid execution layer (the verification kit) lives in a separate repository.
 
+## 日本語版 / Japanese Edition
+
+**『AIエージェントセキュリティ・フィールドマニュアル』** — 本書の日本語版があります。自律型（ツールを使う）AIエージェントの脅威・コントロール・検証可能な保証を、「脅威 → コントロール → 要件 → 検証」の一本のチェーンで貫いて解説する、エンジニアとセキュリティアーキテクトのためのフィールドマニュアルです。内容は英語版と1対1対応です。
+
+- 書籍（Leanpub）: <https://leanpub.com/agent-security-ja>
+- ソース（GitHub）: <https://github.com/AOI-Future/agent-security-manual-ja>
+
 ## The core discipline
 
 The book is organized around one chain that runs top to bottom:
