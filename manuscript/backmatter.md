@@ -13,4 +13,4 @@ The book tells you *what* to verify and *why*. The kit *runs* the verification a
 The kit exists because "we tested our agent" is worth nothing without evidence, and producing that evidence by hand is the tedious part.
 
 **Run the full verification suite and generate the evidence package:**
-<https://0xshugo.gumroad.com/l/AI-Agent>
+<https://0xshugo.gumroad.com/l/AI-Agent?utm_source=leanpub_en&utm_medium=book&utm_campaign=agent_security_funnel&utm_content=en_backmatter>
