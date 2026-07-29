@@ -29,7 +29,7 @@ Most security writing about AI agents falls into one of two traps. The first is 
 
 This manual is built to avoid both. It is organized around a single chain that runs from top to bottom:
 
-**Threat → Control → Requirement → Verification.**
+**Threat -> Control -> Requirement -> Verification.**
 
 Every threat class in Chapter 2 maps to one or more controls in Part II. Every control is expressed as a normative requirement in Chapter 9, using RFC 2119 language (SHALL / SHOULD / MAY), so that "we do this" becomes a claim someone can audit rather than a vibe. And every SHALL requirement is tied to at least one verification test in Chapter 10 that returns a pass or a fail. If a requirement cannot be tested, either the requirement is wrong or you are missing a control. That is the discipline the book enforces on itself.
 

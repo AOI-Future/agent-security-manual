@@ -49,7 +49,7 @@ Notice that only the first of these is about the model at all. The other three a
 
 The book's structure is not decorative. It is a claim about how assurance is built, and it runs in one direction:
 
-> **Threat (Ch. 2) → Control (Part II) → Requirement (Ch. 9) → Verification (Ch. 10).**
+> **Threat (Ch. 2) -> Control (Part II) -> Requirement (Ch. 9) -> Verification (Ch. 10).**
 
 - You cannot justify a **control** without naming the **threat** it addresses. Controls with no threat are cost; threats with no control are risk you are silently accepting.
 - You cannot **operate** a control you have not written down as a **requirement**. "We review tool permissions" is a hope. "REQ-010: every network-capable tool SHALL have an explicit allowlist" is a claim.

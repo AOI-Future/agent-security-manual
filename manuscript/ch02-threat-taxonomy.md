@@ -114,7 +114,7 @@ Each class below gives the attacker's viewpoint and representative scenario, the
 
 **Impact.** Hollowed-out verification, delayed detection, un-auditable behavior.
 
-**Why it matters.** This threat attacks your *assurance* rather than your system directly. If evaluation conditions are distinguishable from production, any guarantee derived from evaluation is void. It is also the threat that most directly justifies Part IV: verification has to run against production-representative conditions, continuously, and regressions have to be caught, or the whole Threat→Verification chain is theater.
+**Why it matters.** This threat attacks your *assurance* rather than your system directly. If evaluation conditions are distinguishable from production, any guarantee derived from evaluation is void. It is also the threat that most directly justifies Part IV: verification has to run against production-representative conditions, continuously, and regressions have to be caught, or the whole Threat->Verification chain is theater.
 
 *References: Anthropic; MITRE ATLAS; NIST.*
 

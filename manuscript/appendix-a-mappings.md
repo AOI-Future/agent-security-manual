@@ -2,7 +2,7 @@
 
 This appendix carries the traceability that the body of the book keeps in the background. It exists so that you can walk the assurance chain in either direction: from a threat down to the tests that prove you have answered it, or from a failing test back up to the threat it leaves open. An empty control or requirement cell means an unaddressed threat or an ungoverned control — a real gap, and exactly what the tables are for. The verification column is different in kind: it lists the *in-book* tests defined in Chapter 10, which are a representative slice; the exhaustive requirement-to-test matrix is the living artifact maintained and enforced by the companion kit's coverage check (REQ-054). A thin VT cell here is therefore a pointer to the kit, not a confession of an unverified control.
 
-## The master traceability table (TH → CT → REQ → VT)
+## The master traceability table (TH -> CT -> REQ -> VT)
 
 Read a row left to right as a claim: *this threat is answered by these controls, which are made operable by these requirements, which are proven by these tests.* The identifiers are the stable ones used throughout the book (threats TH-01..TH-10 from Chapter 2, controls CT-01..CT-15 from Chapter 3, requirements REQ-000..REQ-054 from Chapter 9, tests VT-* from Chapter 10).
 
@@ -21,7 +21,7 @@ Read a row left to right as a claim: *this threat is answered by these controls,
 
 Three notes on this table. First, the runtime-posture requirements (REQ-040..REQ-047) and the logging requirement (REQ-030) recur across many threat rows rather than belonging to one, because they are cross-cutting: posture degradation and reconstructable logging answer the general case and reinforce the specific controls. Second, the source mapping register handed TH-10 a requirement identifier (REQ-016) that does not exist in the requirement specification; it is treated here as REQ-035, the incident-response and abuse-blocking requirement that actually carries the TH-10 abuse path. That substitution is flagged in the Changelog errata as a source correction to verify against the next specification revision. Third, TH-04's verification cell names test *methods* rather than in-book test identifiers: memory reversibility (REQ-022) and rollback demonstration (REQ-034) are proven dynamically and by evidence, and Chapter 10's representative table does not enumerate those specific tests — they live in the kit's master matrix. The cell says what class of test applies and where the exhaustive list is, rather than borrowing an unrelated static identifier.
 
-## Requirement-to-threat index (REQ → TH)
+## Requirement-to-threat index (REQ -> TH)
 
 The inverse index lets you start from a requirement — for instance when triaging a failed test — and recover the threats it defends, so you can judge what a failure actually exposes.
 
@@ -41,7 +41,7 @@ The inverse index lets you start from a requirement — for instance when triagi
 | REQ-053 | TH-02, TH-05 (approval quality) |
 | REQ-054 | TH-09 (assurance integrity) |
 
-## Control-to-chapter index (CT → where it is treated)
+## Control-to-chapter index (CT -> where it is treated)
 
 Finally, a pointer from each control area to the chapter that develops it, so a reader who enters through this appendix can find the prose.
 
