@@ -4,22 +4,22 @@ This appendix carries the traceability that the body of the book keeps in the ba
 
 ## The master traceability table (TH -> CT -> REQ -> VT)
 
-Read a row left to right as a claim: *this threat is answered by these controls, which are made operable by these requirements, which are proven by these tests.* The identifiers are the stable ones used throughout the book (threats TH-01..TH-10 from Chapter 2, controls CT-01..CT-15 from Chapter 3, requirements REQ-000..REQ-054 from Chapter 9, tests VT-* from Chapter 10).
+Read a row left to right as a claim: *this threat is answered by these controls, which are made operable by these requirements, which are proven by these tests.* The identifiers are the stable ones used throughout the book (threats TH-01..TH-10 from Chapter 2, controls CT-01..CT-15 from Chapter 3, requirements REQ-000..REQ-061 from Chapter 9, tests VT-* from Chapter 10).
 
 | Threat | Controls (CT) | Requirements (REQ) | Verification (VT) |
 |--------|---------------|--------------------|--------------------|
 | TH-01 Prompt injection (direct/indirect) | CT-07, CT-08, CT-11 | REQ-020, REQ-021, REQ-031, REQ-033 | VT-S-020, VT-D-020, VT-D-021, VT-D-022, VT-D-023, VT-D-024 |
-| TH-02 Tool abuse / privilege escalation | CT-04, CT-05, CT-06, CT-08, CT-09, CT-15 | REQ-010, REQ-011, REQ-012, REQ-015, REQ-030, REQ-040, REQ-042, REQ-044 | VT-S-010, VT-D-010, VT-D-011 |
+| TH-02 Tool abuse / privilege escalation | CT-04, CT-05, CT-06, CT-08, CT-09, CT-15 | REQ-010, REQ-011, REQ-012, REQ-015, REQ-030, REQ-040, REQ-042, REQ-044, REQ-056 | VT-S-010, VT-D-010, VT-D-011, VT-D-056, VT-E-056 |
 | TH-03 RAG / knowledge-base poisoning | CT-07, CT-11, CT-13 | REQ-020, REQ-021, REQ-033 | VT-S-020, VT-S-021, VT-D-020, VT-D-021, VT-D-022, VT-D-023, VT-D-024 |
 | TH-04 Memory / context contamination | CT-07, CT-08, CT-13, CT-15 | REQ-022, REQ-052, REQ-034, REQ-042 | VT-D / VT-E (memory-reversibility and rollback exercise; enumerated in kit matrix) |
 | TH-05 Agent identity / authority abuse | CT-02, CT-03, CT-05, CT-08 | REQ-001, REQ-002, REQ-003, REQ-013 | VT-S-001, VT-A-001, VT-A-002 |
 | TH-06 Delegation / multi-agent abuse | CT-02, CT-03, CT-05 | REQ-002, REQ-013, REQ-051 | VT-A-050, VT-A-051 |
-| TH-07 Supply-chain / MCP / plugin compromise | CT-04, CT-10, CT-13, CT-14 | REQ-014, REQ-050, REQ-032 | VT-S-050, VT-D-050, VT-E-050, VT-E-051 |
-| TH-08 Data exfiltration / secret exposure | CT-05, CT-06, CT-07, CT-09 | REQ-003, REQ-011, REQ-012, REQ-030 | VT-D-010, VT-D-011, VT-S-030 |
-| TH-09 Audit / evaluation evasion | CT-09, CT-10, CT-11 | REQ-030, REQ-031, REQ-033, REQ-043, REQ-054 | VT-E-040, VT-E-041, VT-A-070, VT-A-071 |
-| TH-10 Model / service abuse | CT-01, CT-08, CT-10, CT-12 | REQ-035, REQ-048, REQ-049 | VT-A-060, VT-A-061 |
+| TH-07 Supply-chain / MCP / plugin compromise | CT-04, CT-10, CT-13, CT-14 | REQ-014, REQ-050, REQ-032, REQ-061 | VT-S-050, VT-D-050, VT-E-050, VT-E-051, VT-A-084 |
+| TH-08 Data exfiltration / secret exposure | CT-05, CT-06, CT-07, CT-09 | REQ-003, REQ-011, REQ-012, REQ-030, REQ-055 | VT-D-010, VT-D-011, VT-S-030, VT-S-055, VT-D-055 |
+| TH-09 Audit / evaluation evasion | CT-09, CT-10, CT-11 | REQ-030, REQ-031, REQ-033, REQ-043, REQ-054, REQ-055, REQ-056, REQ-057, REQ-058, REQ-059, REQ-060 | VT-E-040, VT-E-041, VT-A-070, VT-A-071, VT-S-055, VT-D-055, VT-E-055, VT-D-056, VT-E-056, VT-E-057, VT-A-080, VT-A-081, VT-E-058, VT-E-059, VT-A-082, VT-A-083 |
+| TH-10 Model / service abuse | CT-01, CT-08, CT-10, CT-12 | REQ-035, REQ-048, REQ-049, REQ-058 | VT-A-060, VT-A-061, VT-A-081 |
 
-Three notes on this table. First, the runtime-posture requirements (REQ-040..REQ-047) and the logging requirement (REQ-030) recur across many threat rows rather than belonging to one, because they are cross-cutting: posture degradation and reconstructable logging answer the general case and reinforce the specific controls. Second, the source mapping register handed TH-10 a requirement identifier (REQ-016) that does not exist in the requirement specification; it is treated here as REQ-035, the incident-response and abuse-blocking requirement that actually carries the TH-10 abuse path. That substitution is flagged in the Changelog errata as a source correction to verify against the next specification revision. Third, TH-04's verification cell names test *methods* rather than in-book test identifiers: memory reversibility (REQ-022) and rollback demonstration (REQ-034) are proven dynamically and by evidence, and Chapter 10's representative table does not enumerate those specific tests — they live in the kit's master matrix. The cell says what class of test applies and where the exhaustive list is, rather than borrowing an unrelated static identifier.
+Five notes on this table. First, the runtime-posture requirements (REQ-040..REQ-047) and the logging requirement (REQ-030) recur across many threat rows rather than belonging to one, because they are cross-cutting: posture degradation and reconstructable logging answer the general case and reinforce the specific controls. Second, the source mapping register handed TH-10 a requirement identifier (REQ-016) that does not exist in the requirement specification; it is treated here as REQ-035, the incident-response and abuse-blocking requirement that actually carries the TH-10 abuse path. That substitution has since been confirmed against the underlying specification, which now carries REQ-035 on that row and has removed the phantom identifier; the Changelog records the correction as closed. Third, TH-04's verification cell names test *methods* rather than in-book test identifiers: memory reversibility (REQ-022) and rollback demonstration (REQ-034) are proven dynamically and by evidence, and Chapter 10's representative table does not enumerate those specific tests — they live in the kit's master matrix. The cell says what class of test applies and where the exhaustive list is, rather than borrowing an unrelated static identifier. Fourth, the evidence-integrity requirements added in the 2026-07-31 revision (REQ-055, REQ-056, REQ-057) appear on the TH-09 row together and individually on the rows of the threats whose evidence they protect, because each one pairs with a requirement that only demanded an artifact exist: REQ-055 with REQ-030, REQ-056 with REQ-015, REQ-057 with REQ-033. Reading a paired row means reading both halves — the artifact and the reason to believe it. Fifth, the assurance-independence requirements added in the 2026-08-01 revision (REQ-058, REQ-059, REQ-060, REQ-061) sit one layer above that pairing: they do not ask whether an artifact is true but whether the party asserting it was entitled to assert it, whether the list it was scored against came from outside, and whether anything was allowed to be silently left out. REQ-058 therefore appears on TH-09 and on the governance row TH-10, REQ-061 on the supply-chain row TH-07, and REQ-059 and REQ-060 on TH-09, where the adversary is the reporting layer itself.
 
 ## Requirement-to-threat index (REQ -> TH)
 
@@ -40,6 +40,13 @@ The inverse index lets you start from a requirement — for instance when triagi
 | REQ-048, REQ-049 | TH-10, governance (cross-cutting) |
 | REQ-053 | TH-02, TH-05 (approval quality) |
 | REQ-054 | TH-09 (assurance integrity) |
+| REQ-055 | TH-02, TH-08, TH-09 (record integrity) |
+| REQ-056 | TH-02, TH-09 (approval integrity) |
+| REQ-057 | TH-09 (evaluation integrity) |
+| REQ-058 | TH-09, TH-10 (assurance independence) |
+| REQ-059 | TH-09 (scope and fail-closed integrity) |
+| REQ-060 | TH-09 (non-suppression) |
+| REQ-061 | TH-07 (supplier claim corroboration) |
 
 ## Control-to-chapter index (CT -> where it is treated)
 
