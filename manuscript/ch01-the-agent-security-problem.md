@@ -53,7 +53,7 @@ The book's structure is not decorative. It is a claim about how assurance is bui
 
 - You cannot justify a **control** without naming the **threat** it addresses. Controls with no threat are cost; threats with no control are risk you are silently accepting.
 - You cannot **operate** a control you have not written down as a **requirement**. "We review tool permissions" is a hope. "REQ-010: every network-capable tool SHALL have an explicit allowlist" is a claim.
-- You cannot **trust** a requirement you cannot **verify**. A SHALL with no test is decoration. Chapter 10 exists so that every SHALL in Chapter 9 terminates in a pass/fail check.
+- You cannot **trust** a requirement you cannot **verify**. A SHALL with no test is decoration — and a test that cannot fail is decoration with a green light on it. Chapter 10 exists so that every SHALL in Chapter 9 terminates in a pass/fail check that is still capable of returning fail, and that measures the property the requirement is actually about rather than a stand-in that has quietly come apart from it.
 
 When you finish this book you should be able to take any control you run and trace it up to the threat that justifies it and down to the test that proves it works. If any link in that chain is missing, you have found either wasted effort or unmanaged risk. That traceability — not any single clever defense — is the product.
 
@@ -65,6 +65,7 @@ A mature agent deployment can answer these questions with evidence, not assertio
 - *What happens when untrusted content tells it to misbehave?* — a tested answer, from an executable injection suite, not a policy document (Chapters 6, 10).
 - *Who did what, under whose authority, and when?* — reconstructable from logs alone, across delegation hops (Chapters 4, 7).
 - *What do we do when we are attacked faster than we can fix it?* — a defined runtime posture with a kill switch and an SLA, not an all-hands panic (Chapter 8).
+- *Do our checks measure what we think they measure?* — for every green result, a named stand-in, the property it stands for, and a test that goes red when the two come apart (Chapters 9–10).
 - *Can we prove all of the above to someone who does not trust us?* — a signed, timestamped audit artifact (Part IV).
 
 The gap between a team that can answer these and a team that cannot is the gap this manual is written to close. Chapter 2 begins with the threats.

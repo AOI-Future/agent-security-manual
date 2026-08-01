@@ -114,7 +114,7 @@ Each class below gives the attacker's viewpoint and representative scenario, the
 
 **Impact.** Hollowed-out verification, delayed detection, un-auditable behavior.
 
-**Why it matters.** This threat attacks your *assurance* rather than your system directly. If evaluation conditions are distinguishable from production, any guarantee derived from evaluation is void. It is also the threat that most directly justifies Part IV: verification has to run against production-representative conditions, continuously, and regressions have to be caught, or the whole Threat->Verification chain is theater.
+**Why it matters.** This threat attacks your *assurance* rather than your system directly. If evaluation conditions are distinguishable from production, any guarantee derived from evaluation is void. The same reasoning extends past the harness to the indicators it reports. Almost everything you check is a stand-in for the property you care about — the labeler ran, the run completed, the monitor is quiet, the posture flipped — and an adversary who can hold the stand-in true while the property is false has evaded evaluation without touching a single test. Nothing needs to be disabled: a labeler that runs and misclassifies still satisfies a presence check, a monitor whose input silently stopped reports no anomalies, a kill switch that sets a flag no enforcement point reads records a clean transition. This is the threat that most directly justifies Part IV: verification has to run against production-representative conditions, continuously, with regressions caught and with each indicator bound to the property it stands for — or the whole Threat->Verification chain is theater.
 
 *References: Anthropic; MITRE ATLAS; NIST.*
 
