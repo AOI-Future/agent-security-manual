@@ -12,7 +12,7 @@ This section names the readers whose questions changed the text. Where a contrib
 
 **Fourth revision.** This one had no new question behind it. Reading the same reader's two questions next to each other made a shape visible that neither of them named: both were cases where a check reported on something other than the thing it was believed to report on — an evidence trail standing in for an event, a judge's silence standing in for a score. So we went looking for the rest of that shape in our own text, and found it in places no correspondent had pointed at: a label required to be applied but never to be right, a monitor whose silence was read as safety, a report whose scope nobody had to state, a revocation nothing had to try. REQ-062 through REQ-066, the nine tests that carry them, and the fifth rung of the ladder in Chapter 10 come from that search rather than from an external report. It is recorded here because the credit belongs where it is due in both directions: the questions were the hint, and following the hint past what it literally said was the work. Two questions from one reader have now moved this specification three times — twice by what they asked, and once by what asking them sent us to look for.
 
-If you find the next gap, the same applies. Corrections and challenges are welcome, and the errata process in the changelog describes how they are handled.
+If you find the next gap, the same applies. Corrections and challenges are welcome, and the place to file them is the book's public issue tracker: <https://github.com/AOI-Future/agent-security-manual/issues>. A finding filed there gets a number and a state, and the errata process in the changelog describes how it is handled from that point on.
 
 # About the Companion Kit
 
