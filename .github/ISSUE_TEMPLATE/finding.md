@@ -10,7 +10,7 @@ Real cases welcome — what happened, what the check reported, what was actually
 
 **Where it touches the spec, if you know**
 
-REQ or VT identifiers if you have them (REQ-000..066, VT-S/D/E/A). "Nothing covers this" is a valid answer — those are usually the interesting ones.
+REQ or VT identifiers if you have them (REQ-000..068, VT-S/D/E/A). "Nothing covers this" is a valid answer — those are usually the interesting ones.
 
 **What you'd expect the spec to do about it**
 
