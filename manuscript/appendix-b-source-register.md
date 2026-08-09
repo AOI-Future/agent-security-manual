@@ -10,6 +10,8 @@ These are the authoritative references the requirement specification is built on
 
 **NIST** — The AI Risk Management Framework and its generative-AI profile (AI 600-1) supply the govern/map/measure/manage structure and the risk-management vocabulary the governance chapter uses. Work from NIST's CAISI and the NCCoE on AI and software-agent identity underpins the identity and delegation requirements. *Foundational for CT-01, CT-03, CT-05, CT-13, CT-15 and the governance family.*
 
+**OASIS SARIF 2.1.0** — The Static Analysis Results Interchange Format separates invocation success from analysis results and defines execution-error notifications as evidence that a run may be incomplete. Its rule that consumers must not assume a failed run contains a complete result set is the reporting precedent for failing closed on partial traversal. *Foundational for REQ-063, REQ-067, REQ-069 and the run-completeness tests in Chapter 10.*
+
 **CISA and NCSC** — Joint and individual guidance on deploying AI systems securely and on secure-by-design principles. The primary basis for least-privilege, logging, and incident-response requirements, and for the layered "defend the system, not the model" stance. *Foundational for CT-05, CT-09, CT-12.*
 
 **OWASP GenAI / LLM Top 10** — The LLM01 prompt-injection entry and the broader GenAI security project give the standard vocabulary for the injection, RAG-poisoning, and tool-abuse threat classes. *Foundational for TH-01, TH-02, TH-03, TH-04 and CT-07.*
