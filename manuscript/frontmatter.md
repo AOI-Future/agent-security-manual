@@ -45,6 +45,7 @@ If that is your system, this book is for you. Prior knowledge of application sec
 - **Part II — Controls** is the defensive core: the control taxonomy, then three chapters on identity, tool safety, and untrusted content, in the same order an attacker would probe them.
 - **Part III — Operations** covers the things that only exist once the agent is live: monitoring, incident response, and a runtime "security posture" state machine for when you are attacked faster than you can patch.
 - **Part IV — Assurance** turns the whole book into something auditable: the requirement specification, the verification test plan, and the governance record a regulator or enterprise buyer will ask for.
+- **Part V — Long-Horizon Agent Overlay** applies when autonomy itself becomes a capability multiplier — parallel sub-agents, asynchronous or delayed side effects, persistent workers, compaction, inter-agent communication, or access to consequential control planes. It adds the authority-conservation rule without creating a vendor-specific threat taxonomy.
 
 The appendices carry the cross-reference tables (threat-to-control-to-requirement) and the source register, so the body of the book stays readable.
 
