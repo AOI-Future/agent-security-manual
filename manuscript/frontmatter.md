@@ -13,7 +13,7 @@
 
 **Author:** Shugo Nozaki
 
-**Edition:** First edition (living document). See the Changelog for the current revision.
+**Edition:** First edition (living document). See the current dated Revision Note and the historical Changelog for revision history.
 
 **License:** This book is released under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (CC BY-NC-ND 4.0). You may read, share, and quote it with attribution. You may not sell it, and you may not publish modified versions. The full license text is at <https://creativecommons.org/licenses/by-nc-nd/4.0/>.
 
