@@ -18,4 +18,5 @@ ch12-authority-conservation.md
 backmatter.md
 appendix-a-mappings.md
 appendix-b-source-register.md
+appendix-c-authority-conservation-mapping.md
 changelog.md
