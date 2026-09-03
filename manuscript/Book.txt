@@ -19,4 +19,5 @@ ch12-authority-conservation.md
 backmatter.md
 appendix-a-mappings.md
 appendix-b-source-register.md
+revision-2026-09-04-authority-conservation.md
 changelog.md
