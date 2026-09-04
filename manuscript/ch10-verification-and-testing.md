@@ -101,6 +101,8 @@ Authority conservation adds a different axis to that ladder rather than another 
 
 ## The companion kit and the signed artifact
 
+**Revision coverage boundary (5 September 2026).** This manual defines REQ-070 through REQ-078 and their verification targets. Companion-kit implementation and execution of these additions have not been verified for this publication. Operators must check the kit version, coverage matrix, and retained execution evidence before claiming coverage or conformance for the new requirements.
+
 Everything in this chapter can be done by hand, and the book tells you exactly what to check so that you can. What the book does not do — because a book cannot — is execute the suite and hand you evidence. That is the companion kit, sold separately, and this is the seam where the free explanation meets the paid tooling.
 
 The kit runs the full method set: the Hardshell v2 static sweep, the PyRIT and garak adversarial battery, the log and evidence inspection, and the attestation checks. It applies the operational rules automatically — dated reports, failures routed to the change queue, secrets redacted — and it consolidates the whole run into a **single artifact: one JSON payload carrying every test identifier and its pass or fail, rendered to a PDF a CISO can read, and sealed with an RFC 3161 trusted timestamp.** The timestamp is the part that matters to someone who does not trust you: it proves the results existed at a specific time and have not been edited since, which turns "we tested this" from an assertion into a verifiable record.
@@ -109,4 +111,4 @@ Be precise about what that seal does and does not establish, because the distinc
 
 That single signed artifact is the concrete answer to Chapter 1's last question — *can we prove all of the above to someone who does not trust us* — and it is the deliverable an enterprise buyer or a regulator actually asks to see.
 
-Verification is where the book's chain terminates and where its claims become checkable. What remains is the human accountability that surrounds the technical system — who owns the risk, who reviewed the decision, who is answerable when a control fails. That is governance, and it is the subject of the final chapter.
+Verification is where the book's chain terminates and where its claims become checkable. What remains is the human accountability that surrounds the technical system — who owns the risk, who reviewed the decision, who is answerable when a control fails. That is governance, and it is the subject of Chapter 11.

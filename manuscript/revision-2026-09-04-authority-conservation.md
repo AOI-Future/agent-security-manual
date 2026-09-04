@@ -31,3 +31,7 @@ A **Part V — Long-Horizon Agent Overlay** is added so these requirements can b
 One boundary is deliberate. The revision requires an explicit aggregate authority budget where concurrency can amplify harm, but it does not prescribe universal limits for fan-out, wall-clock time, data volume, transaction value, or similar dimensions. Those values are deployment-specific governance decisions. The invariant is that the relevant budget exists, is enforced outside the agents that spend it, and is verifiable.
 
 No existing requirement is downgraded or retired. The historical Changelog that follows is retained verbatim; this dated revision note records the 2026-09-04 substantive change without rewriting the prior revision record.
+
+## Editorial verification — 5 September 2026
+
+The publication review corrected the System Card date from 4 to 3 September, restored the missing-mitigation condition on the initial 29-hour browser evaluation, and limited the monitorability comparison to the reported evaluation scope. Chapter 12 now identifies the verification IDs as stable and distinguishes specification coverage from companion-kit implementation and execution. Direct links to the vendor-primary sources are included. The historical Changelog remains unchanged.
