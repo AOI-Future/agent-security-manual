@@ -13,7 +13,7 @@
 
 **Author:** Shugo Nozaki
 
-**Edition:** First edition (living document). See the Changelog for the current revision.
+**Edition:** First edition (living document). See the current dated Revision Note and the historical Changelog for revision history.
 
 **License:** This book is released under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (CC BY-NC-ND 4.0). You may read, share, and quote it with attribution. You may not sell it, and you may not publish modified versions. The full license text is at <https://creativecommons.org/licenses/by-nc-nd/4.0/>.
 
@@ -45,6 +45,7 @@ If that is your system, this book is for you. Prior knowledge of application sec
 - **Part II — Controls** is the defensive core: the control taxonomy, then three chapters on identity, tool safety, and untrusted content, in the same order an attacker would probe them.
 - **Part III — Operations** covers the things that only exist once the agent is live: monitoring, incident response, and a runtime "security posture" state machine for when you are attacked faster than you can patch.
 - **Part IV — Assurance** turns the whole book into something auditable: the requirement specification, the verification test plan, and the governance record a regulator or enterprise buyer will ask for.
+- **Part V — Long-Horizon Agent Overlay** applies when autonomy itself becomes a capability multiplier — parallel sub-agents, asynchronous or delayed side effects, persistent workers, compaction, inter-agent communication, or access to consequential control planes. It adds the authority-conservation rule without creating a vendor-specific threat taxonomy.
 
 The appendices carry the cross-reference tables (threat-to-control-to-requirement) and the source register, so the body of the book stays readable.
 

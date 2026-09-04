@@ -14,7 +14,10 @@ part4.md
 ch09-requirements.md
 ch10-verification-and-testing.md
 ch11-governance-and-compliance.md
+part5.md
+ch12-authority-conservation.md
 backmatter.md
 appendix-a-mappings.md
 appendix-b-source-register.md
+revision-2026-09-04-authority-conservation.md
 changelog.md

@@ -2,9 +2,9 @@
 
 ## From threats to a catalogue of moves
 
-Chapter 2 named what can go wrong. This chapter names what you can do about it. The control taxonomy is a catalogue of fifteen control areas, CT-01 through CT-15, each of which is a class of defensive move rather than a specific product or config line. The identifiers are stable and they carry through the rest of the book: every control maps up to the threats it answers and down to the requirements (Chapter 9) that make it operable and the tests (Chapter 10) that prove it works.
+Chapter 2 named what can go wrong. This chapter names what you can do about it. The control taxonomy is a catalogue of sixteen control areas, CT-01 through CT-16, each of which is a class of defensive move rather than a specific product or config line. The identifiers are stable and they carry through the rest of the book: every control maps up to the threats it answers and down to the requirements (Chapter 9) that make it operable and the tests (Chapter 10) that prove it works.
 
-A catalogue is not a program. You do not deploy all fifteen controls with equal weight on every agent; you deploy the ones that answer the threats your agent is actually exposed to, at the strength its risk tier justifies. The value of the taxonomy is that it forces the mapping to be explicit. A control with no threat behind it is cost you cannot justify. A threat with no control in front of it is risk you are silently carrying. The taxonomy is the ledger where both are visible.
+A catalogue is not a program. You do not deploy all sixteen controls with equal weight on every agent; you deploy the ones that answer the threats your agent is actually exposed to, at the strength its risk tier justifies. The value of the taxonomy is that it forces the mapping to be explicit. A control with no threat behind it is cost you cannot justify. A threat with no control in front of it is risk you are silently carrying. The taxonomy is the ledger where both are visible.
 
 ## The four hardening surfaces
 
@@ -17,7 +17,7 @@ Chapter 1 ended with four attacker assumptions, and Chapter 2 observed that the 
 
 The rest of Part II is built on these four surfaces, one chapter at a time. This chapter lays out the whole catalogue so that the deep-dive chapters have a shared vocabulary to point back to.
 
-## The fifteen control areas
+## The sixteen control areas
 
 **CT-01 — Governance and risk management.** Document the use cases, the prohibited uses, the accountable owner, the accepted risks, the exceptions, and the regulatory or contractual obligations. This is the surface no scanner sees; its absence is the precondition for every other failure. Answers the general case. *NIST AI 600-1; CISA/NCSC.*
 
@@ -49,11 +49,13 @@ The rest of Part II is built on these four surfaces, one chapter at a time. This
 
 **CT-15 — Runtime security posture and capability degradation.** When new information, an observed attack, or an anomaly arrives, switch posture *before* the specification is formally revised, temporarily restricting or halting tools, external sends, secrets, memory, RAG, delegation, code execution, and scheduled runs. Answers the general case. *NIST AI RMF Manage; CISA IR; Microsoft layered controls.*
 
-## Four principles that make the catalogue hold together
+**CT-16 — Control-plane integrity and authority conservation.** Keep the agent unable to relax the mechanisms that constrain its own authority; re-authorize asynchronous or delayed side effects at the moment they commit; bound aggregate capability across concurrent and delegated work; treat persistent and scheduled execution as a new delegation event; prohibit opportunistic use of ambient credentials; preserve security invariants across compaction and persisted state; and observe consequential effects at enforcement points independent of the model's own reasoning. Answers TH-02, TH-05, TH-06, TH-08, TH-09. *NIST least privilege and separation of duties; CISA secure-by-design; vendor primary disclosures as capability evidence.*
 
-The controls are not a menu to pick one from; they are layers that assume each other. Four design principles keep them coherent, and they recur through the rest of the book.
+## Five principles that make the catalogue hold together
 
-**Defend at the system boundary, not the model.** Model safety, application control, identity and IAM, the tool execution environment, and audit are separate layers, and you stack them. A safer model narrows one surface; it does not close the other three. This is why CT-03 through CT-15 are mostly about architecture and operations rather than prompts.
+The controls are not a menu to pick one from; they are layers that assume each other. Five design principles keep them coherent, and they recur through the rest of the book.
+
+**Defend at the system boundary, not the model.** Model safety, application control, identity and IAM, the tool execution environment, and audit are separate layers, and you stack them. A safer model narrows one surface; it does not close the other three. This is why CT-03 through CT-16 are mostly about architecture and operations rather than prompts.
 
 **Approve on authority, not on intent.** An approval gate that asks "should the agent do this?" is answering the wrong question, because the model's stated intent is exactly what an attacker controls. A useful gate (CT-08) shows *which privilege, against which target, changing what* — the diff, the destination, the scope, the data classification, and the rollback condition — so the human is checking authority and effect, not vibes.
 
@@ -61,4 +63,6 @@ The controls are not a menu to pick one from; they are layers that assume each o
 
 **Manage memory, RAG, and tool definitions like code.** They change agent behavior as surely as source does, and an unreviewed change to any of them is an unreviewed change to your security posture. CT-13 puts them under version control, review, and rollback — and CT-15 buys you time when a change lands faster than review can keep up.
 
-That last pairing — permanent change management and provisional runtime degradation — is the seam between the controls you design ahead of time and the ones you invoke under pressure. The next three chapters work through the first three hardening surfaces in the order an attacker probes them, starting with identity: who the agent is, and whose authority it is allowed to spend.
+**Conserve authority across time and across the agent graph.** Least privilege is a snapshot; long-running autonomy is a trajectory. A child with less scope is not sufficient if sixty-four children can collectively recreate the parent's capability many times over, and an approval at dispatch is not sufficient if the effect commits after policy, destination, or posture changed. CT-16 therefore treats concurrency, persistence, delayed execution, and control-plane modification as places where authority can be multiplied unless the enforcement layer makes the budget, state, and approval binding explicit.
+
+That last pairing — permanent change management and provisional runtime degradation — is now joined by authority conservation: permanent and temporary controls both have to remain outside the trajectory they constrain, and every delayed or delegated effect has to remain inside the authority that was actually granted. The next three chapters work through the first three hardening surfaces in the order an attacker probes them, starting with identity: who the agent is, and whose authority it is allowed to spend.
